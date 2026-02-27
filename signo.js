@@ -75,3 +75,41 @@ function dataValida(data, dia, mes, ano) {
     data.getDate() === dia
   );
 }
+
+
+function preencherInformacoes(data, dia, mes, ano) {
+
+  document.getElementById("mesnascimento").value = meses[mes - 1];
+  document.getElementById("diadasemanaquenasceu").value =
+    diasSemana[data.getDay()];
+
+  calcularIdade(dia, mes, ano);
+  atualizarImagemSigno(dia, mes);
+}
+
+function calcularIdade(dia, mes, ano) {
+  const hoje = new Date();
+  let idade = hoje.getFullYear() - ano;
+
+  if (
+    hoje.getMonth() < mes - 1 ||
+    (hoje.getMonth() === mes - 1 && hoje.getDate() < dia)
+  ) {
+    idade--;
+  }
+
+  document.getElementById("idadenascimento").value = idade;
+}
+
+function atualizarImagemSigno(dia, mes) {
+  const signo = descobrirSigno(dia, mes);
+  const img = document.getElementById("signo1");
+  const arquivo = arquivoPorSigno[signo];
+
+  if (arquivo) {
+    img.src = PASTA_IMAGENS + arquivo;
+    img.alt = signo;
+  } else {
+    img.src = PASTA_IMAGENS + "vazio.png";
+  }
+}
