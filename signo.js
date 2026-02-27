@@ -47,3 +47,31 @@ function Mostrar() {
 
   preencherInformacoes(data, dia, mes, ano);
 }
+
+function validarEntrada(dia, mes, ano) {
+
+  if (dia === "" || isNaN(dia) || dia < 1 || dia > 31) {
+    alert("Digite um dia válido!");
+    return false;
+  }
+
+  if (mes === "" || isNaN(mes) || mes < 1 || mes > 12) {
+    alert("Digite um mês válido!");
+    return false;
+  }
+
+  if (ano === "" || isNaN(ano) || ano.length !== 4) {
+    alert("Digite um ano válido!");
+    return false;
+  }
+
+  return true;
+}
+
+function dataValida(data, dia, mes, ano) {
+  return (
+    data.getFullYear() === ano &&
+    data.getMonth() === mes - 1 &&
+    data.getDate() === dia
+  );
+}
