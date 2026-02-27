@@ -25,3 +25,25 @@ const arquivoPorSigno = {
   "Aquário": "Aquario.jpg",
   "Peixes": "peixes.jpg"
 };
+
+function Mostrar() {
+
+  const diaInput = document.getElementById("boxdianascimento").value.trim();
+  const mesInput = document.getElementById("boxmesnascimento").value.trim();
+  const anoInput = document.getElementById("boxanonascimento").value.trim();
+
+  if (!validarEntrada(diaInput, mesInput, anoInput)) return;
+
+  const dia = parseInt(diaInput);
+  const mes = parseInt(mesInput);
+  const ano = parseInt(anoInput);
+
+  const data = new Date(ano, mes - 1, dia);
+
+  if (!dataValida(data, dia, mes, ano)) {
+    alert("Data inválida!");
+    return;
+  }
+
+  preencherInformacoes(data, dia, mes, ano);
+}
