@@ -132,3 +132,19 @@ function descobrirSigno(dia, mes) {
   if ((mes==1 && dia>=20)||(mes==2 && dia<=18)) return "Aquário";
   return "Peixes";
 }
+
+
+// LIMPAR
+
+
+function Apagar(){
+
+  document.getElementById("boxdianascimento").value="";
+  document.getElementById("boxmesnascimento").value="";
+  document.getElementById("boxanonascimento").value="";
+  document.getElementById("mesnascimento").value="";
+  document.getElementById("diadasemanaquenasceu").value="";
+  document.getElementById("idadenascimento").value="";
+
+  document.getElementById("signo1").src = PASTA_IMAGENS + "vazio.png";
+}
