@@ -53,3 +53,107 @@ body > div{
   gap: 14px;
   align-items: center;
 }
+
+body > div > h1{
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/*  INPUTS  */
+input[type="text"]{
+  width: 100%;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #f9fafb;
+  color: var(--ink);
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  outline: none;
+}
+
+input[type="text"]::placeholder{ color: #9aa3b2; }
+
+input[type="text"]:focus{
+  background: #fff;
+  border-color: color-mix(in srgb, var(--accent) 70%, #fff 0%);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent 78%);
+}
+
+input[disabled]{
+  background: #eef2f7;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+/*  IMAGEM DO SIGNO  */
+.signo-img{
+  width: clamp(110px, 14vw, 150px);
+  height: clamp(110px, 14vw, 150px);
+  object-fit: contain;
+  justify-self: start;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px dashed #dbe2ea;
+  padding: 10px;
+  box-shadow: 0 8px 22px rgba(2, 6, 23, .05);
+}
+
+/*  BOTÕES  */
+#botao1, #botao2{
+  appearance: none;
+  border: 0;
+  height: 46px;
+  padding: 0 20px;
+  margin-right: 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .2px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(2, 6, 23, .10);
+  transition: transform .06s ease, filter .15s ease, box-shadow .2s ease;
+}
+
+
+#botao1{
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: #fff;
+}
+#botao1:hover{ filter: brightness(1.04); transform: translateY(-1px); }
+#botao1:active{ transform: translateY(0); }
+
+
+#botao2{
+  background: #ffffff;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  box-shadow: 0 8px 18px rgba(185, 28, 28, .10);
+}
+#botao2:hover{ background: #fff5f5; transform: translateY(-1px); }
+#botao2:active{ transform: translateY(0); }
+
+
+body > input[type="button"]{ margin-top: 14px; }
+
+
+br + br{ display: none; }
+
+
+
+/*  RESPONSIVO */
+@media (max-width: 720px){
+  body{ padding: 24px 12px 48px; }
+  body > div{ grid-template-columns: 1fr; gap: 10px; }
+  .signo-img{ justify-self: center; }
+  #botao1, #botao2{ width: 48%; min-width: 130px; }
+}
+
+/* ====== ACESSIBILIDADE ====== */
+#botao1:focus-visible, #botao2:focus-visible, input[type="text"]:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--accent) 40%, #fff 0%);
+  outline-offset: 2px;
+}
+::selection{ background: #c7f3ef; color: #0b2530; }
